@@ -20,7 +20,7 @@ https://github.com/
 
 Чтобы сделать клон репозитория команда
 
-git clone https://github.com/MadbomberRU/IV222
+git clone https://github.com/MadbomberRU/DetSad
 
 Он скопирует папку в каталог где вы находитесь
 Потом нужно перейти в ту папку
