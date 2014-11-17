@@ -28,6 +28,11 @@ namespace iv222
 			return size; // возвращает размер строки
 		}
 
+		friend std::ostream& operator<< (std::ostream& os, const String& out_string)
+		{
+			return os << out_string.str;
+		}
+
 		/*
 		
 		реализовать функции и операторы для работы с классом
@@ -50,5 +55,6 @@ int main()
 	std::cout << b.get_size() << std::endl;
 	String c = b; //2
 	std::cout << c.get_size() << std::endl;
+	std::cout << b << std::endl;
 	return 0;
 }
