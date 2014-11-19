@@ -13,18 +13,21 @@ namespace iv222
 			str = new char[size + 1];
 			strcpy(str, _str);
 		}
-			
+
 		String(const String& rhs)	// копирует из String в String
-		{			
+		{
 			size = rhs.size;
 			str = new char[size + 1];
 			strcpy(str, rhs.str);
 		}
+
 		~String()
 		{
 			delete str; // удаляем выделенную память
 		}
-		int get_size(){
+
+		const int get_size()
+		{
 			return size; // возвращает размер строки
 		}
 
@@ -33,10 +36,26 @@ namespace iv222
 			return os << out_string.str;
 		}
 
+		bool operator==(const String& rhs)
+		{
+			return strcmp(str, rhs.str) ? false : true;
+		}
+
+		bool operator>(const String& rhs)
+		{
+			return size > rhs.size ? true : false;
+		}
+
+		bool operator<(const String& rhs)
+		{
+			return size < rhs.size ? true : false;
+		}
+
+		
 		/*
-		
+
 		реализовать функции и операторы для работы с классом
-		
+
 		*/
 
 	private:
@@ -55,6 +74,8 @@ int main()
 	std::cout << b.get_size() << std::endl;
 	String c = b; //2
 	std::cout << c.get_size() << std::endl;
-	std::cout << b << std::endl;
+
+	printf("%s", a < b? "TRUE": "FALSE");
+
 	return 0;
 }
