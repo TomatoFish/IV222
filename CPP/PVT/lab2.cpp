@@ -44,7 +44,8 @@ void copy_to(char *a, char *b)
     while(*b != '.')
     {
         *a = *b;
-        *b++; *a++;
+        
+		*b++; *a++;
     }
 }
 
