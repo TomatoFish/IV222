@@ -34,7 +34,6 @@ int main () {
 			win = menuIn(&game, &user, userInput, inTime);
 		if (user.checkLife() <= 0)
 			alive = false;
-		//game.print(user.checkItem(Torchlight));
 	}
 	if (!alive) {
 		cout << FONT_COLOR_SYS << BG_COLOR_SYS << CLRSCR << "You are dead!!\n";

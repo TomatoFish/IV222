@@ -3,10 +3,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <time.h>
 #include <stdlib.h>
-#include <stdio.h>
-//#include <sys/time.h>
 #include <chrono>
 
 using namespace std;
@@ -354,7 +351,6 @@ class Map {
 							rooms[i][j].addItem();
 						rooms[i][j].addGold();
 					}
-			//key and chest
 			X = placeX;
 			Y = placeY;
 			int life = size*2, keyMove = rand()%life, chestMove, door = rand()%4;
@@ -473,29 +469,6 @@ class Map {
 		void printItems () {
 			rooms[placeX][placeY].print();
 		}
-		//to testing
-		/*void print (bool torch) {
-			cout << backX << backY << endl;
-			for (int j = 0; j < size; ++j) {
-				for (int i = 0; i < size; ++i) {
-					if (rooms[i][j].check())
-						cout << BG_COLOR_YELLOW << rooms[i][j].check() << "(";
-					else
-						cout << rooms[i][j].check() << "(";
-					if (rooms[i][j].checkDark(torch))
-						cout << "X";
-					else
-						cout << " ";
-					if (rooms[i][j].checkMonster())
-						cout << "$";
-					else
-						cout << " ";
-					cout << ") ";
-					cout << BG_COLOR_BLACK;
-				}
-				cout << endl;
-			}
-		}*/
 		~Map () {
 			for (int i = 0; i < size; ++i)
 				delete []rooms[i];
@@ -579,10 +552,6 @@ class Player {
 };
 
 void menuOut(Map *m, Player *p) {
-	// to testing
-	/*cout << "You have " << p->checkLife() << " life\n"; 
-	p->printInv();
-	cout << endl;*/
 	if (m->checkDark(p->checkItem(Torchlight))) {
 		cout << "Can’t see anything in this dark place!\n";
 		return;
@@ -1011,7 +980,7 @@ bool menuIn(Map *m, Player *p, string input, bool inTime) {
 			cout << "I don't drop Gold. Never!\n";
 			return false;
 		}
-		cout  << FONT_COLOR_RED << "Fuck you!\n" << FONT_COLOR_WHITE;
+		cout  << FONT_COLOR_RED << "No such item!\n" << FONT_COLOR_WHITE;
 		return false;
 	}
 	checkA = "open";
@@ -1024,4 +993,3 @@ bool menuIn(Map *m, Player *p, string input, bool inTime) {
 	cout  << FONT_COLOR_RED << "Unknown command!\n" << FONT_COLOR_WHITE;
 	return false;
 }
-//#endif
